@@ -1,0 +1,11 @@
+{
+  "siteTitle": "創作部公式ホームページ",
+  "headerTitle": "STUDENT EXHIBITION",
+  "subTitle": "日常の創作と、部員たちの表現の記録",
+  "navButtons": [
+    { "label": "トップ展示", "url": "/" },
+    { "label": "部活紹介・理念", "url": "/about" },
+    { "label": "活動時間・場所", "url": "/schedule" },
+    { "label": "公式SNS一覧", "url": "/sns" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "SCHEDULE & LOCATION",
+  "subtitle": "活動日時・部室の案内",
+  "schedules": [
+    { "day": "火曜日", "time": "18:30 〜 20:00" },
+    { "day": "水曜日", "time": "17:00 〜 20:00" },
+    { "day": "最終木曜日", "time": "18:00 〜 20:00" }
+  ],
+  "scheduleNote": "※ 授業の都合による途中参加・途中離脱も自由です。",
+  "locationTitle": "活動場所",
+  "locationName": "予約している教室",
+  "locationNote": "見学はいつでも歓迎しています!"
+}

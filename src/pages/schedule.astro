@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import scheduleData from './data/schedule.json';
+---
+
+<Layout title={`${scheduleData.title} | 創作部`}>
+	<a href="/" class="back-link">← ホームに戻る</a>
+
+	<main>
+		<section class="card">
+			<h2>活動時間</h2>
+			{scheduleData.schedules.map((item) => (
+				<div class="schedule-list">
+					<span class="day">{item.day}</span>
+					<span class="time">{item.time}</span>
+				</div>
+			))}
+			<p class="note">{scheduleData.scheduleNote}</p>
+		</section>
+
+		<section class="card">
+			<h2>{scheduleData.locationTitle}</h2>
+			<p><strong>{scheduleData.locationName}</strong></p>
+			<p style="margin-top: 8px;">{scheduleData.locationNote}</p>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	.back-link {
+		display: inline-block;
+		margin-bottom: 40px;
+		color: #666670;
+		text-decoration: none;
+		font-size: 0.9rem;
+	}
+	.back-link:hover { color: #111; }
+	.card {
+		background: #ffffff;
+		padding: 36px;
+		border-radius: 12px;
+		border: 1px solid rgba(0, 0, 0, 0.04);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+		margin-bottom: 28px;
+	}
+	h2 { font-size: 1.25rem; font-weight: 600; margin-top: 0; margin-bottom: 20px; color: #111; }
+	.schedule-list {
+		display: grid;
+		grid-template-columns: 100px 1fr;
+		gap: 16px;
+		margin-bottom: 12px;
+		font-size: 0.95rem;
+	}
+	.day { font-weight: 600; color: #333; }
+	.time { color: #555560; }
+	.note { font-size: 0.85rem; color: #888892; margin-top: 16px; }
+</style>

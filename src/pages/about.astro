@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import aboutData from './data/about.json';
+---
+
+<Layout title={`${aboutData.title} | 創作部`}>
+	<a href="/" class="back-link">← ホームに戻る</a>
+
+	<main>
+		{aboutData.sections.map((section) => (
+			<section class="card">
+				<h2>{section.heading}</h2>
+				{section.text && <p>{section.text}</p>}
+				{section.list && (
+					<ul>
+						{section.list.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				)}
+			</section>
+		))}
+	</main>
+</Layout>
+
+<style>
+	.back-link {
+		display: inline-block;
+		margin-bottom: 40px;
+		color: #666670;
+		text-decoration: none;
+		font-size: 0.9rem;
+	}
+	.back-link:hover { color: #111; }
+	.card {
+		background: #ffffff;
+		padding: 36px;
+		border-radius: 12px;
+		border: 1px solid rgba(0, 0, 0, 0.04);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+		margin-bottom: 28px;
+	}
+	h2 { font-size: 1.25rem; font-weight: 600; margin-top: 0; margin-bottom: 16px; color: #111; }
+	p { color: #555560; line-height: 1.8; font-size: 0.95rem; margin: 0; }
+	ul { color: #555560; line-height: 1.8; padding-left: 20px; margin: 0; }
+	li { margin-bottom: 8px; }
+</style>

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "公式 X (Twitter)",
+    "id": "@sousakubu_example",
+    "description": "日々の活動風景や展示会・学園祭の最新情報を発信中！",
+    "url": "https://x.com",
+    "badge": "Main"
+  },
+  {
+    "name": "Instagram",
+    "id": "@sousakubu_gallery",
+    "description": "部員のイラスト・3D作品のギャラリー＆制作裏話。",
+    "url": "https://instagram.com",
+    "badge": "Gallery"
+  },
+  {
+    "name": "Discord",
+    "id": "創作部コミュニティ",
+    "description": "見学・体験入部希望者向けのオンライン説明＆交流サーバー。",
+    "url": "https://discord.com",
+    "badge": "Community"
+  },
+  {
+    "name": "YouTube / Pixiv",
+    "id": "作品アーカイブログ",
+    "description": "メイキング動画やメイキング誌の配信を行っています。",
+    "url": "https://youtube.com",
+    "badge": "Archive"
+  }
+]

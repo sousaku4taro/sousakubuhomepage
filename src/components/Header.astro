@@ -1,0 +1,61 @@
+---
+import siteData from '../pages/data/site.json';
+---
+
+<header>
+	<h1>{siteData.headerTitle}</h1>
+	<p class="sub-title">{siteData.subTitle}</p>
+	
+	<nav class="nav-buttons">
+		{siteData.navButtons.map((btn) => (
+			<a href={btn.url} class="nav-btn">{btn.label}</a>
+		))}
+	</nav>
+</header>
+
+<style>
+	header {
+		text-align: center;
+		margin-bottom: 60px;
+	}
+	h1 {
+		font-size: 2.2rem;
+		font-weight: 500;
+		letter-spacing: 0.15em;
+		margin-bottom: 12px;
+		color: #111;
+	}
+	p.sub-title {
+		color: #666670;
+		font-size: 0.95rem;
+		margin-bottom: 32px;
+	}
+	.nav-buttons {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 12px;
+		margin-top: 24px;
+	}
+	.nav-btn {
+		display: inline-flex;
+		align-items: center;
+		padding: 8px 18px;
+		border-radius: 30px;
+		background: #ffffff;
+		color: #333338;
+		font-size: 0.85rem;
+		font-weight: 500;
+		text-decoration: none;
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+		transition: all 0.25s ease;
+	}
+	.nav-btn:hover {
+		background: #1a1a1e;
+		color: #ffffff;
+		border-color: #1a1a1e;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	}
+</style>

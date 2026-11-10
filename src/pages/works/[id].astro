@@ -1,0 +1,111 @@
+---
+// ★共通のJSONデータを読み込む
+import mockWorks from '../data/works.json';
+
+export async function getStaticPaths() {
+	// ★読み込んだJSONデータからページを動的に生成
+	return mockWorks.map((work) => ({
+		params: { id: work.id },
+		props: { work },
+	}));
+}
+
+const { work } = Astro.props;
+---
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{work.title} | 創作部展示</title>
+		<style>
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+				max-width: 900px;
+				margin: 0 auto;
+				padding: 60px 24px;
+				background: #fafafc;
+				color: #1a1a1e;
+			}
+			.back-link {
+				display: inline-block;
+				margin-bottom: 32px;
+				color: #666670;
+				text-decoration: none;
+				font-size: 0.9rem;
+			}
+			.back-link:hover {
+				color: #111;
+			}
+			.detail-header {
+				margin-bottom: 32px;
+			}
+			.category {
+				font-size: 0.85rem;
+				color: #888892;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+			h1 {
+				font-size: 2.2rem;
+				font-weight: 600;
+				margin: 12px 0;
+			}
+			.meta-info {
+				display: flex;
+				gap: 24px;
+				color: #666670;
+				font-size: 0.9rem;
+			}
+			.main-image {
+				width: 100%;
+				border-radius: 12px;
+				overflow: hidden;
+				margin-bottom: 40px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+			}
+			.main-image img {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+			.content-section {
+				line-height: 1.8;
+				color: #444;
+				font-size: 1.05rem;
+			}
+			.tool-badge {
+				display: inline-block;
+				margin-top: 24px;
+				background: #eeeef2;
+				padding: 6px 14px;
+				border-radius: 6px;
+				font-size: 0.85rem;
+				color: #444;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="/" class="back-link">← 一覧に戻る</a>
+		
+		<article>
+			<header class="detail-header">
+				<span class="category">{work.category}</span>
+				<h1>{work.title}</h1>
+				<div class="meta-info">
+					<span>制作者: {work.author}</span>
+					<span>制作日: {work.date}</span>
+				</div>
+			</header>
+
+			<div class="main-image">
+				<img src=`../${work.image}` alt={work.title} />
+			</div>
+
+			<div class="content-section">
+				<p>{work.description}</p>
+				<span class="tool-badge">使用ツール: {work.tool}</span>
+			</div>
+		</article>
+	</body>
+</html>

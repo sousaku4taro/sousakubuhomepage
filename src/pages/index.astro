@@ -1,16 +1,33 @@
 ---
+import mockWorks from './data/works.json';
+import siteData from './data/site.json';
+import Layout from '../layouts/Layout.astro';
+import WorkCard from '../components/WorkCard.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title={siteData.siteTitle}>
+	<main>
+		<h2 class="section-title">EXHIBITION WORKS</h2>
+		<div class="gallery-grid">
+			{mockWorks.map((work) => (
+				<WorkCard work={work} />
+			))}
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.section-title {
+		text-align: center;
+		color: #111;
+		font-size: 1.3rem;
+		font-weight: 500;
+		margin-bottom: 40px;
+		letter-spacing: 0.05em;
+	}
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+		gap: 48px;
+	}
+</style>

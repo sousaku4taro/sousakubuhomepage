@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import snsList from './data/sns.json';
+---
+
+<Layout title="OFFICIAL SNS | 創作部">
+	<a href="/" class="back-link">← ホームに戻る</a>
+
+	<main class="sns-container">
+		{snsList.map((sns) => (
+			<a href={sns.url} target="_blank" rel="noopener" class="sns-card">
+				<div class="sns-info">
+					<h2>
+						{sns.name}
+						<span class="badge">{sns.badge}</span>
+					</h2>
+					<span class="sns-handle">{sns.id}</span>
+					<p>{sns.description}</p>
+				</div>
+				<div class="arrow-icon">↗</div>
+			</a>
+		))}
+	</main>
+</Layout>
+
+<style>
+	.back-link {
+		display: inline-block;
+		margin-bottom: 40px;
+		color: #666670;
+		text-decoration: none;
+		font-size: 0.9rem;
+		transition: color 0.2s ease;
+	}
+	.back-link:hover { color: #111; }
+	.sns-container {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	.sns-card {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: #ffffff;
+		padding: 28px 32px;
+		border-radius: 12px;
+		border: 1px solid rgba(0, 0, 0, 0.04);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+		text-decoration: none;
+		color: inherit;
+		transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+	.sns-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+		border-color: rgba(0, 0, 0, 0.1);
+	}
+	.sns-info h2 {
+		font-size: 1.2rem;
+		font-weight: 600;
+		margin: 0 0 4px 0;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+	.sns-handle {
+		font-size: 0.85rem;
+		color: #888892;
+		font-weight: 400;
+	}
+	.sns-info p {
+		margin: 8px 0 0 0;
+		font-size: 0.9rem;
+		color: #555560;
+		line-height: 1.5;
+	}
+	.badge {
+		font-size: 0.75rem;
+		padding: 3px 10px;
+		border-radius: 20px;
+		background: #f0f0f3;
+		color: #555;
+		font-weight: 500;
+	}
+	.arrow-icon {
+		font-size: 1.2rem;
+		color: #ccc;
+		transition: transform 0.2s ease, color 0.2s ease;
+	}
+	.sns-card:hover .arrow-icon {
+		color: #111;
+		transform: translateX(4px);
+	}
+</style>
