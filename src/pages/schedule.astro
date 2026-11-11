@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import scheduleData from './data/schedule.json';
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout title={`${scheduleData.title} | 創作部`}>
-	<a href="/" class="back-link">← ホームに戻る</a>
+	<a href={baseUrl} class="back-link">← ホームに戻る</a>
 
 	<main>
 		<section class="card">
