@@ -1,5 +1,6 @@
 ---
-import siteData from '../pages/data/site.json';
+import siteData from '../data/site.json';
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <header>
@@ -8,7 +9,7 @@ import siteData from '../pages/data/site.json';
 	
 	<nav class="nav-buttons">
 		{siteData.navButtons.map((btn) => (
-			<a href={btn.url} class="nav-btn">{btn.label}</a>
+			<a href={`${baseUrl}/${btn.url}`} class="nav-btn">{btn.label}</a>
 		))}
 	</nav>
 </header>
