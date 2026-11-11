@@ -11,7 +11,7 @@ const workUrl = `${baseUrl}/works/${work.id}`;
 const imagePath = work.image ? `${baseUrl}/${work.image.replace(/^\//, '')}` : '';
 ---
 
-<a href={`/works/${work.id}`} class="work-card-link">
+<a href={workUrl} class="work-card-link">
 	<article class="work-card">
 		<div class="image-wrapper">
 			<span class="category-tag">{work.category}</span>
