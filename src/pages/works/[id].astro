@@ -92,28 +92,29 @@ const imagePath = work.image ? `${baseUrl}/${work.image.replace(/^\//, '')}` : '
 		</style>
 	</head>
 	<body>
-		{/* ★戻るボタンのリンクを baseUrl に変更 */}
-		<a href={baseUrl} class="back-link">← 一覧に戻る</a>
-		
-		<article>
-			<header class="detail-header">
-				<span class="category">{work.category}</span>
-				<h1>{work.title}</h1>
-				<div class="meta-info">
-					<span>制作者: {work.author}</span>
-					<span>制作日: {work.date}</span>
+		<Layout title={`${scheduleData.title} | 創作部`}>
+			<a href={baseUrl} class="back-link">← 一覧に戻る</a>
+			
+			<article>
+				<header class="detail-header">
+					<span class="category">{work.category}</span>
+					<h1>{work.title}</h1>
+					<div class="meta-info">
+						<span>制作者: {work.author}</span>
+						<span>制作日: {work.date}</span>
+					</div>
+				</header>
+	
+				<div class="main-image">
+					{/* ★ベースパスを考慮した画像パスを指定 */}
+					<img src={imagePath} alt={work.title} />
 				</div>
-			</header>
-
-			<div class="main-image">
-				{/* ★ベースパスを考慮した画像パスを指定 */}
-				<img src={imagePath} alt={work.title} />
-			</div>
-
-			<div class="content-section">
-				<p>{work.description}</p>
-				<span class="tool-badge">使用ツール: {work.tool}</span>
-			</div>
-		</article>
+	
+				<div class="content-section">
+					<p>{work.description}</p>
+					<span class="tool-badge">使用ツール: {work.tool}</span>
+				</div>
+			</article>
+		</Layout>
 	</body>
 </html>
