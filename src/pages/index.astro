@@ -9,7 +9,7 @@ import WorkCard from '../components/WorkCard.astro';
 	<main>
 		<h2 class="section-title">EXHIBITION WORKS</h2>
 		<div class="gallery-grid">
-			{mockWorks.map((work) => (
+			{mockWorks.workdata.map((work) => (
 				<WorkCard work={work} />
 			))}
 		</div>
