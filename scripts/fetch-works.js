@@ -39,7 +39,7 @@ async function fetchWorks() {
     }));
 
     // 保存先パスを設定して JSON 書き出し
-    const outputDir = path.resolve('src/data');
+    const outputDir = path.resolve('src/pages/data');
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir, { recursive: true });
     }
