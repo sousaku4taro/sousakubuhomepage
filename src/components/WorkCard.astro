@@ -5,7 +5,7 @@ const { work } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // ★work.id を使って直接作品ページのURL（/sousakubuhomepage/works/spring-2026 など）を作成
-const workUrl = `${baseUrl}/works/${work.id}`;
+const workUrl = `${baseUrl}works/${work.id}`;
 
 // ★画像のパスもベースパスを付与（先頭のスラッシュ調整）
 const imagePath = work.image ? `${baseUrl}/${work.image.replace(/^\//, '')}` : '';
