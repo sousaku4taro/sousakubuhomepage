@@ -1,25 +1,22 @@
-{
-  "title": "創作の記録",
-  "worksdata":[
-    {
-      "id": "spring-2026",
-      "title": "test",
-      "author": "test",
-      "category": "イラスト",
-      "tool": "test",
-      "date": "2026.05.15",
-      "image": "images/test.png",
-      "description": "test"
-    },
-    {
-      "id": "avatar-3d",
-      "title": "test2",
-      "author": "test2",
-      "category": "test2",
-      "tool": "test2",
-      "date": "2026.10.20",
-      "image": "images/test2.png",
-      "description": "test"
-    }
-  ]
-}
+[
+  {
+    "id": "p5-xvrw9m",
+    "title": "test2",
+    "author": "sii",
+    "category": "testdata",
+    "tool": "microCMS",
+    "date": "2026.11.11",
+    "image": "images/p5-xvrw9m.png",
+    "description": "microCMSとの連携確認です\n見えていますか？"
+  },
+  {
+    "id": "h-dtx4np_99",
+    "title": "test",
+    "author": "sii",
+    "category": "testdata",
+    "tool": "microCMS",
+    "date": "2026.11.11",
+    "image": "images/h-dtx4np_99.png",
+    "description": "testdataです\nうまく見えていますか？"
+  }
+]

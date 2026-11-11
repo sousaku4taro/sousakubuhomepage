@@ -2,6 +2,7 @@ import { createClient } from 'microcms-js-sdk';
 import fs from 'fs';
 import path from 'path';
 import 'dotenv/config';
+import { pipeline } from 'node:stream/promises';
 
 const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN;
 const apiKey = process.env.MICROCMS_API_KEY;
@@ -26,17 +27,34 @@ async function fetchWorks() {
       queries: { limit: 100 }
     });
 
+
+
+
     // Astro側（works.json）が期待するデータフォーマットに変換
-    const formattedData = res.contents.map((item) => ({
+    const formattedData = await Promise.all(res.contents.map(async (item) => {
+      try {
+        const response = await fetch(item.image.url);
+        if (!response.ok) {
+          throw new Error(`HTTPエラー: ${response.status}`);
+        }
+
+        // レスポンスボディ(Web Stream)をNode.jsの書き込みストリームへパイプする
+        const fileStream = fs.createWriteStream(`./public/images/${item.id}.png`);
+        await pipeline(response.body, fileStream);
+        
+      } catch (error) {
+        console.error('ダウンロード失敗:', error);
+      }
+      return{
       id: item.id,
       title: item.title,
       author: item.author,
       category: item.category,
       tool: item.tool || '',
       date: item.date || item.createdAt.substring(0, 10).replace(/-/g, '.'),
-      image: item.image?.url || '',
+      image: `images/${item.id}.png` || '',
       description: item.description || ''
-    }));
+    }}));
 
     // 保存先パスを設定して JSON 書き出し
     const outputDir = path.resolve('src/pages/data');

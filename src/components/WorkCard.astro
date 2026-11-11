@@ -15,7 +15,7 @@ const imagePath = work.image ? `${baseUrl}/${work.image.replace(/^\//, '')}` : '
 	<article class="work-card">
 		<div class="image-wrapper">
 			<span class="category-tag">{work.category}</span>
-			<img src={work.image} alt={work.title} />
+			<img src={imagePath} alt={work.title} />
 		</div>
 		<div class="card-body">
 			<div class="meta">
