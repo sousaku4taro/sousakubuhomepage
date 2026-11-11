@@ -1,6 +1,6 @@
 ---
 // ★共通のJSONデータを読み込む
-import mockWorks from '../data/works.json';
+import mockWorks from '../../data/works.json';
 
 export async function getStaticPaths() {
 	// ★読み込んだJSONデータからページを動的に生成
@@ -11,6 +11,12 @@ export async function getStaticPaths() {
 }
 
 const { work } = Astro.props;
+
+// ★ベースパスを取得（末尾のスラッシュを整理）
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// ★画像のパス（先頭の「/」を取り除いてベースパスと結合）
+const imagePath = work.image ? `${baseUrl}/${work.image.replace(/^\//, '')}` : '';
 ---
 
 <html lang="ja">
@@ -86,7 +92,8 @@ const { work } = Astro.props;
 		</style>
 	</head>
 	<body>
-		<a href="/" class="back-link">← 一覧に戻る</a>
+		{/* ★戻るボタンのリンクを baseUrl に変更 */}
+		<a href={baseUrl || '/'} class="back-link">← 一覧に戻る</a>
 		
 		<article>
 			<header class="detail-header">
@@ -99,7 +106,8 @@ const { work } = Astro.props;
 			</header>
 
 			<div class="main-image">
-				<img src=`../${work.image}` alt={work.title} />
+				{/* ★ベースパスを考慮した画像パスを指定 */}
+				<img src={imagePath} alt={work.title} />
 			</div>
 
 			<div class="content-section">
