@@ -4,7 +4,7 @@ import mockWorks from '../data/works.json';
 
 export async function getStaticPaths() {
 	// ★読み込んだJSONデータからページを動的に生成
-	return mockWorks.map((work) => ({
+	return mockWorks.worksdata.map((work) => ({
 		params: { id: work.id },
 		props: { work },
 	}));
